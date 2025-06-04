@@ -131,7 +131,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # این رو اضافه کن تا فرانت‌اند لوکال بتونه وصل بشه
+    "https://amiable-nurturing-production.up.railway.app", # آدرس بک‌اند خودت
+    "https://cheerful-zuccutto-a849c4.netlify.app",
+    "https://ryanprojects.ir"
+    # اگر فرانت‌اند رو هم دیپلوی کردی، آدرس اون هم اینجا میاد
+]
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }

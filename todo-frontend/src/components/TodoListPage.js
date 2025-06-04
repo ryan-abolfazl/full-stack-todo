@@ -13,8 +13,7 @@
 
     const fetchTodos = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/todos/');
-        if (response.data && Array.isArray(response.data.results)) {
+          const response = await axios.get('https://amiable-nurturing-production.up.railway.app/api/todos/');        if (response.data && Array.isArray(response.data.results)) {
           setTodos(response.data.results);
         } else if (response.data && Array.isArray(response.data)) {
           setTodos(response.data);

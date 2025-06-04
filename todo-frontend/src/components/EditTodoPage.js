@@ -14,7 +14,7 @@
     useEffect(() => {
       const fetchTodo = async () => {
         try {
-          const response = await axios.get(`http://127.0.0.1:8000/api/todos/${id}/`);
+          const response = await axios.get(`https://amiable-nurturing-production.up.railway.app/api/todos/${id}/`);
           setTitle(response.data.title);
           setDescription(response.data.description);
           setCompleted(response.data.completed);
@@ -29,7 +29,7 @@
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        await axios.put(`http://127.0.0.1:8000/api/todos/${id}/`, {
+        await axios.put(`https://amiable-nurturing-production.up.railway.app/api/todos/${id}/`, {
           title,
           description,
           completed,

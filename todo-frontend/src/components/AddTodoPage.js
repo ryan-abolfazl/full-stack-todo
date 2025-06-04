@@ -12,7 +12,7 @@
     const handleSubmit = async (e) => {
       e.preventDefault(); // از رفرش شدن صفحه جلوگیری میکنه
       try {
-        await axios.post('http://127.0.0.1:8000/api/todos/', {
+        await axios.post('https://amiable-nurturing-production.up.railway.app/api/todos/', {
           title, // title: title
           description, // description: description
           completed: false,
