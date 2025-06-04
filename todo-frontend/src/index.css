@@ -1,129 +1,239 @@
 /* src/index.css */
 
+/* تنظیمات پایه برای کل صفحه */
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
+  padding: 0;
+  background-color: #f0f2f5; /* رنگ پس‌زمینه روشن */
   color: #333;
+  line-height: 1.6;
 }
 
+/* استایل کانتینر اصلی اپلیکیشن */
 .App {
-  max-width: 800px;
+  max-width: 850px;
   margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+/* استایل عنوان‌های کلی */
+h1, h2 {
   text-align: center;
+  color: #007bff; /* آبی پررنگ */
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.8em;
   color: #0056b3;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.add-todo-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 30px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #e9f5ff;
+/* استایل برای لینک‌ها و دکمه‌های ناوبری */
+a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.add-todo-form input,
-.add-todo-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+a:hover {
+  color: #0056b3;
 }
 
-.add-todo-form button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
+/* استایل دکمه‌های عمومی */
+button {
+  padding: 10px 18px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s ease;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 80px; /* حداقل عرض برای دکمه‌ها */
 }
 
-.add-todo-form button:hover {
-  background-color: #0056b3;
+button:hover {
+  transform: translateY(-1px);
 }
 
-.todo-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.todo-item {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.todo-item h3 {
-  margin: 0;
-  color: #333;
-}
-
-.todo-item p {
-  margin: 0;
-  color: #666;
-  font-size: 0.9em;
-}
-
-.todo-item.completed {
-  background-color: #e6ffe6;
-  border-color: #a3e6a3;
-}
-
-.todo-item.completed h3 {
-  text-decoration: line-through;
-  color: #777;
-}
-
-.todo-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.todo-actions button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.2s ease;
-}
-
-.todo-actions button:first-child { /* Mark as Complete/Incomplete */
-  background-color: #28a745;
+/* دکمه‌های افزودن و ارسال فرم */
+button[type="submit"], .add-todo-form button {
+  background-color: #28a745; /* سبز */
   color: white;
 }
 
-.todo-actions button:first-child:hover {
+button[type="submit"]:hover, .add-todo-form button:hover {
   background-color: #218838;
 }
 
-.todo-actions button:last-child { /* Delete */
-  background-color: #dc3545;
+/* دکمه‌های ویرایش */
+.todo-actions button {
+  background-color: #17a2b8; /* فیروزه‌ای برای ویرایش */
+  color: white;
+}
+.todo-actions button:hover {
+  background-color: #138496;
+}
+
+/* دکمه تغییر وضعیت (تکمیل/ناتمام) */
+.todo-actions button:first-child {
+  background-color: #007bff; /* آبی */
+}
+
+.todo-actions button:first-child:hover {
+  background-color: #0056b3;
+}
+
+/* دکمه حذف */
+.todo-actions button:last-child {
+  background-color: #dc3545; /* قرمز */
   color: white;
 }
 
 .todo-actions button:last-child:hover {
   background-color: #c82333;
+}
+
+/* استایل فرم‌ها (Add/Edit) */
+.add-todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 25px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.add-todo-form input[type="text"],
+.add-todo-form textarea {
+  padding: 12px;
+  border: 1px solid #ccd0d4;
+  border-radius: 5px;
+  font-size: 1em;
+  width: calc(100% - 24px); /* با در نظر گرفتن padding */
+}
+
+.add-todo-form textarea {
+  resize: vertical; /* اجازه تغییر اندازه عمودی به کاربر */
+  min-height: 80px;
+}
+
+.add-todo-form label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1em;
+  color: #555;
+}
+
+.add-todo-form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* استایل لیست Todoها */
+.todo-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todo-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.todo-item p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95em;
+}
+
+/* استایل برای Todoهای تکمیل شده */
+.todo-item.completed {
+  background-color: #e6ffe6; /* سبز خیلی روشن */
+  border-color: #a3e6a3; /* سبز روشن‌تر */
+  opacity: 0.8;
+}
+
+.todo-item.completed h3 {
+  text-decoration: line-through; /* خط کشیدن روی عنوان */
+  color: #777;
+}
+
+.todo-item.completed p {
+  color: #999;
+}
+
+
+.todo-actions {
+  display: flex;
+  flex-wrap: wrap; /* برای واکنش‌گرایی بهتر */
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* استایل برای دکمه "Add New Todo" در صفحه لیست */
+div > a { /* انتخاب لینک مستقیم در div در سطح بالا */
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+div > a:hover {
+  background-color: #0056b3;
+  color: white; /* نگه داشتن رنگ سفید در هاور */
+}
+
+/* استایل برای دکمه "Back to Todo List" در صفحات Add/Edit */
+form + a, div > a:first-of-type { /* انتخاب لینک قبل از فرم یا اولین لینک در div */
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #6c757d; /* خاکستری */
+  color: white;
+  border-radius: 5px;
+  font-size: 0.95em;
+}
+
+form + a:hover, div > a:first-of-type:hover {
+  background-color: #5a6268;
+  color: white;
 }
